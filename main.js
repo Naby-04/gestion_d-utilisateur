@@ -20,11 +20,13 @@ if (Form && prenom && nom && email && telephone && tableau && addBtn) {
     };
     userData.push(newUser);
     console.table(userData);
-    userData.forEach((element) => {
-      let row = document.createElement("tr");
-      row.innerHTML = `<td>${element.Prenom}</td><td>${element.Nom}</td><td>${element.Email}</td><td>${element.Telephone}</td>`;
-      tableau?.appendChild(row);
-    });
+    let row = document.createElement("tr");
+    row.innerHTML = `<td>${newUser.Prenom}</td><td>${newUser.Nom}</td><td>${newUser.Email}</td><td>${newUser.Telephone}</td>`;
+    tableau?.appendChild(row);
+    prenom.value = "";
+    nom.value = "";
+    email.value = "";
+    telephone.value = "";
   });
 }
 
