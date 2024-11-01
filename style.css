@@ -49,9 +49,27 @@ hr {
 button {
   font-weight: 500;
 }
+#supptbtn {
+  background: red;
+  padding: 10px;
+  color: var(--text-gray);
+  border-radius: 5px;
+}
+#editbtn {
+  background: #ffc694;
+  padding: 10px;
+  color: var(--text-white);
+  border-radius: 5px;
+}
 #add {
   background: var(--secondary-color);
   color: var(--text-gray);
+  padding: 10px 0;
+  border-radius: 5px;
+}
+#edit {
+  background: rgb(171, 66, 2);
+  color: var(--text-white);
   padding: 10px 0;
   border-radius: 5px;
 }
@@ -82,6 +100,10 @@ td:nth-child(2) {
   border-left: 1px solid var(--secondary-color) !important;
 }
 td:nth-child(3) {
+  border-left: 1px solid var(--secondary-color) !important;
+  border-right: 1px solid var(--secondary-color) !important;
+}
+td:nth-child(4) {
   border-left: 1px solid var(--secondary-color) !important;
   border-right: 1px solid var(--secondary-color) !important;
 }

@@ -5,6 +5,7 @@ const email = document.getElementById("user-Email");
 const telephone = document.getElementById("num-telephone");
 const addBtn = document.getElementById("add");
 const editBtn = document.getElementById("edit");
+const suppbtn = document.getElementById("supptbtn");
 const Form = document.getElementsByTagName("form");
 // Fournit une valeur par défaut "" si localStorage.getItem("user") renvoie null
 const savedData = localStorage.getItem("user") ?? "[]"; // La valeur par défaut est un tableau vide en JSON
@@ -15,7 +16,7 @@ const userData = JSON.parse(savedData);
 function loadSavedData() {
   userData.forEach((user) => {
     let row = document.createElement("tr");
-    row.innerHTML = `<td>${user.Prenom}</td><td>${user.Nom}</td><td>${user.Email}</td><td>${user.Telephone}</td>`;
+    row.innerHTML = `<td>${user.Prenom}</td><td>${user.Nom}</td><td>${user.Email}</td><td>${user.Telephone}</td><td style="display: flex;" class="justify-content-around"><button id="editbtn" class="me-2">Modifier</button><button id="supptbtn">Supprimer</button></td>`;
     tableau?.appendChild(row);
   });
 }
@@ -36,8 +37,8 @@ if (Form && prenom && nom && email && telephone && tableau && addBtn) {
     };
 
     // Créer une nouvelle ligne et ajouter l'utilisateur au tableau HTML
-    let row = document.createElement("tr");
-    row.innerHTML = `<td>${newUser.Prenom}</td><td>${newUser.Nom}</td><td>${newUser.Email}</td><td>${newUser.Telephone}</td>`;
+    var row = document.createElement("tr");
+    row.innerHTML = `<td>${newUser.Prenom}</td><td>${newUser.Nom}</td><td>${newUser.Email}</td><td>${newUser.Telephone}</td><td style="display: flex;"><button id="editbtn" class="me-2">Modifier</button><button id="supptbtn">Supprimer</button></td>`;
     tableau?.appendChild(row);
 
     // Vider les champs de formulaire après ajout
@@ -50,22 +51,17 @@ if (Form && prenom && nom && email && telephone && tableau && addBtn) {
     userData.push(newUser);
     localStorage.setItem("user", JSON.stringify(userData));
     console.table(userData);
+
+    // fonction pour supprimer un row
+    if (suppbtn) {
+      suppbtn.addEventListener("click", function supprimer() {
+        tableau.removeChild(row);
+      });
+    }
   });
 }
 
-// function affichage() {
-// console.log("hello world");
-// userData.push(
-//   { Prenom: prenom },
-//   { Nom: nom },
-//   { Email: email },
-//   { Telephone: telephone }
-// );
-// if (tableau) {
-//   userData.forEach((element) => {
-//     let row = document.createElement("tr");
-//     row.innerHTML = `<td>${element.Prenom}</td><td>${element.Nom}</td><td>${element.Email}</td><td>${element.Telephone}</td>`;
-//     tableau?.appendChild(row);
-//   });
-// }
-// }
+// editBtn?.addEventListener("click", function modifier() {
+//   addBtn.style.display = "none";
+//   editBtn.style.display = "block";
+// });
