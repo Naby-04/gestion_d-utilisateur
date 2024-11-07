@@ -68,7 +68,7 @@ button {
   border-radius: 5px;
 }
 #edit {
-  background: rgb(171, 66, 2);
+  background: rgb(171, 66, 2) !important;
   color: var(--text-white);
   padding: 10px 0;
   border-radius: 5px;
@@ -104,7 +104,6 @@ td:nth-child(3) {
   border-right: 1px solid var(--secondary-color) !important;
 }
 td:nth-child(4) {
-  border-left: 1px solid var(--secondary-color) !important;
   border-right: 1px solid var(--secondary-color) !important;
 }
 tbody tr:hover {
