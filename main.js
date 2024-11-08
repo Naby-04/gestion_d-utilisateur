@@ -114,6 +114,13 @@ function editUpdate() {
   }
 }
 
+// fonction pour supprimer un user
+function suppUser(index) {
+  usersData.splice(index, 1);
+  localStorage.setItem("users", JSON.stringify(usersData));
+  updateTableau();
+}
+
 // Fonction pour réinitialiser le formulaire et les boutons
 function resetForm() {
   // Réinitialiser les champs de saisie
