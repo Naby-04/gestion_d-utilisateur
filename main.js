@@ -37,8 +37,8 @@ function updateTableau() {
   <td>${user.Telephone}</td>
   <!-- affichage des boutons -->
   <td class="d-flex justify-content-around">
-     <button onclick="" id="editbtn" class="me-2" data-index="${index}">Modifier</button>
-     <button onclick="suppUser()" id="supptbtn" data-index="${index}">Supprimer</button>
+     <button onclick="editUser(${index})" id="editbtn" class="me-2" data-index="${index}">Modifier</button>
+     <button onclick="suppUser(${index})" id="supptbtn" data-index="${index}">Supprimer</button>
   </td>
   `;
     tableau.appendChild(row);
@@ -71,4 +71,51 @@ function suppUser(index) {
   usersData.splice(index, 1);
   localStorage.setItem("users", JSON.stringify(usersData));
   updateTableau();
+}
+
+// fonction pour modifier les infos d'un utilisateur
+function editUser(index) {
+  console.table(usersData); // Pour voir si le tableau est rempli correctement
+  console.table(usersData[index]); // Pour vérifier l'élément que tu veux modifier
+
+  if (
+    usersData[index] &&
+    PrenomInput &&
+    NomInput &&
+    EmailInput &&
+    TelephoneInput
+  ) {
+    PrenomInput.value = usersData[index].Prenom;
+    NomInput.value = usersData[index].Nom;
+    EmailInput.value = usersData[index].Email;
+    TelephoneInput.value = usersData[index].Telephone;
+  } else {
+    console.log("Utilisateur non trouvé à l'index", index);
+  }
+  addBtn.style.display = "none";
+  editBtn.style.display = "block";
+}
+
+// fonction pour metre a jour le tableau apres les modifications
+function editUpdate(index) {
+  // Mettre à jour les données dans le tableau
+  usersData[index].Prenom = PrenomInput.value;
+  usersData[index].Nom = NomInput.value;
+  usersData[index].Email = EmailInput.value;
+  usersData[index].Telephone = TelephoneInput.value;
+
+  // Sauvegarder les modifications dans le localStorage
+  localStorage.setItem("users", JSON.stringify(usersData));
+
+  // Mettre à jour le tableau pour afficher les nouvelles données
+  updateTableau();
+
+  // Vider les champs de formulaire après ajout
+  PrenomInput.value = "";
+  NomInput.value = "";
+  EmailInput.value = "";
+  TelephoneInput.value = "";
+
+  addBtn.style.display = "block";
+  editBtn.style.display = "none";
 }

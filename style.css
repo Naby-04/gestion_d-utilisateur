@@ -61,7 +61,7 @@ button {
   color: var(--text-white);
   border-radius: 5px;
 }
-#add {
+#addbtn {
   background: var(--secondary-color);
   color: var(--text-gray);
   padding: 10px 0;

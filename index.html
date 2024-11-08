@@ -31,11 +31,11 @@
     ></script>
     <!-- link css -->
     <link rel="stylesheet" href="style.css" />
-    <title>Gestion d'utilisateur</title>
+    <title>Gestion d'utilisateurs</title>
   </head>
   <body>
     <div class="container py-5 px-3 w-100">
-      <h1 class="mb-5 text-center">GESTION UTILISATEUR</h1>
+      <h1 class="mb-5 text-center">GESTION UTILISATEURS</h1>
       <form class="row p-0">
         <div class="form-floating mb-3 col-12 col-md-6">
           <input
@@ -46,7 +46,7 @@
             name="prenom"
             required
           />
-          <label for="user-FirstName" class="ms-3 w-50">Prenom</label>
+          <label for="user-FirstName" class="ms-3 w-50">Prénoms</label>
         </div>
         <div class="form-floating mb-3 col-12 col-md-6">
           <input
@@ -79,11 +79,19 @@
             name="telephone"
             required
           />
-          <label for="num-telephone" class="ms-3 w-50">Telephone</label>
+          <label for="num-telephone" class="ms-3 w-50">Téléphone</label>
         </div>
         <div>
-          <button id="add" class="w-100" onclick="">Ajouter</button>
-          <button id="edit" class="w-100 d-none">Modifier</button>
+          <button id="addbtn" class="w-100">Ajouter</button>
+          <button
+            onclick="editUpdate()"
+            type="button"
+            id="edit"
+            class="w-100"
+            style="display: none"
+          >
+            Enregistrer
+          </button>
         </div>
       </form>
       <hr class="my-5" />
